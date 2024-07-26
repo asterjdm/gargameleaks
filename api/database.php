@@ -2,8 +2,8 @@
 
 class Database
 {
-
     private $conn;
+    
     public function __construct()
     {
         include_once(dirname(__FILE__) . "/secrets.php");
@@ -16,14 +16,14 @@ class Database
 
     public function select($sql_prompt)
     {
-        $result = mysqli_query($this->conn, $sql_prompt);
+        $result = $this->conn->query($sql_prompt);
 
         if (!$result) {
-            die("Query failed: " . mysqli_error($this->conn));
+            die("Query failed: " . $this->conn->error);
         }
 
         $data = array();
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
 
@@ -35,7 +35,7 @@ class Database
         $result = $this->conn->query($sql_prompt);
 
         if (!$result) {
-            die("Query failed: " . mysqli_error($this->conn));
+            die("Query failed: " . $this->conn->error);
         }
 
         return $result;
@@ -43,11 +43,12 @@ class Database
 
     public function closeConnection()
     {
-        mysqli_close($this->conn);
+        $this->conn->close();
     }
 
     public function escapeStrings($str)
     {
-        return mysqli_real_escape_string($this->conn, $str);
+        return $this->conn->real_escape_string($str);
     }
 }
+?>
