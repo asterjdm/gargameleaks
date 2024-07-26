@@ -1,4 +1,4 @@
-const smurfsCardssEmp = document.getElementById("smurfsCardss");
+const smurfsCards = document.getElementById("smurfsCards");
 
 function getStarsHtml(n) {
   let starsHtml = "";
@@ -92,7 +92,7 @@ function addSmurfs(smurfs) {
     `;
   });
 
-  smurfsCardssEmp.innerHTML = htmlResult;
+  smurfsCards.innerHTML = htmlResult;
 }
 
 getSmurfs(
