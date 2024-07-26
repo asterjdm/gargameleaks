@@ -1,4 +1,4 @@
-const profCardsEmp = document.getElementById("profCards");
+const smurfsCardssEmp = document.getElementById("smurfsCardss");
 
 function getStarsHtml(n) {
   let starsHtml = "";
@@ -17,7 +17,7 @@ function getStarsHtml(n) {
   return starsHtml;
 }
 
-function addTeachers(teachers) {
+function addSmurfs(smurfs) {
   let mdrr = [
     "Francoi holland",
     "Le bon vieu Staline",
@@ -32,7 +32,7 @@ function addTeachers(teachers) {
   ];
 
   let htmlResult = "";
-  teachers.forEach((teacher) => {
+  smurfs.forEach((teacher) => {
     htmlResult += /*html*/ `
       <div class="standard-card">
         <div class="standard-card-top">
@@ -92,12 +92,12 @@ function addTeachers(teachers) {
     `;
   });
 
-  profCardsEmp.innerHTML = htmlResult;
+  smurfsCardssEmp.innerHTML = htmlResult;
 }
 
-getTeachers(
+getSmurfs(
   document.getElementById("searchBar").value,
-  document.getElementById("sortTeachers").value
-).then(function (teachers) {
-  addTeachers(teachers);
+  document.getElementById("sortSmurfs").value
+).then(function (smurfs) {
+  addSmurfs(smurfs);
 });

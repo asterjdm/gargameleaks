@@ -11,7 +11,7 @@ $db = new Database;
 $searchQuery = $db->escapeStrings($_GET["searchQuery"]);
 $sort = $db->escapeStrings($_GET["sort"]);
 
-function compareTeachers($a, $b, $sort)
+function compareSmurfs($a, $b, $sort)
 {
     if ($sort == "best_score") {
         return $b["teaching_quality"] + $b["kindness"] + $b["humor"] - $a["teaching_quality"] - $a["kindness"]  - $a["humor"];
@@ -26,12 +26,12 @@ function compareTeachers($a, $b, $sort)
 
 
 if (isset($searchQuery)) {
-    $teachers = $db->select("SELECT * FROM cescoleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
+    $Smurfs = $db->select("SELECT * FROM cescoleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
 } else {
-    $teachers = $db->select("SELECT * FROM cescoleaks_teachers ORDER BY name");
+    $Smurfs = $db->select("SELECT * FROM cescoleaks_teachers ORDER BY name");
 }
 
-foreach ($teachers as &$teacher) {
+foreach ($Smurfs as &$teacher) {
     $comments = $db->select("SELECT * FROM cescoleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
     $votesData = $db->select("SELECT * FROM cescoleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
     $votesCount = count($votesData);
@@ -55,8 +55,8 @@ foreach ($teachers as &$teacher) {
     $teacher["humor"] = ($votesCount > 0) ? $humorTotal / $votesCount : 0;
 }
 
-usort($teachers, function ($a, $b) use ($sort) {
-    return compareTeachers($a, $b, $sort);
+usort($Smurfs, function ($a, $b) use ($sort) {
+    return compareSmurfs($a, $b, $sort);
 });
 
-echo json_encode($teachers);
+echo json_encode($Smurfs);

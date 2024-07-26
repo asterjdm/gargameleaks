@@ -42,17 +42,17 @@ window.onload = function () {
 };
 
 document.getElementById("searchBar").addEventListener("input", (e) => {
-  getTeachers(e.target.value, document.getElementById("sortTeachers")).then(
-    function (teachers) {
-      addTeachers(teachers);
+  getSmurfs(e.target.value, document.getElementById("sortSmurfs")).then(
+    function (smurfs) {
+      addSmurfs(smurfs);
     }
   );
 });
 
-document.getElementById("sortTeachers").addEventListener("change", (e) => {
-  getTeachers(document.getElementById("searchBar").value, e.target.value).then(
-    function (teachers) {
-      addTeachers(teachers);
+document.getElementById("sortSmurfs").addEventListener("change", (e) => {
+  getSmurfs(document.getElementById("searchBar").value, e.target.value).then(
+    function (smurfs) {
+      addSmurfs(smurfs);
     }
   );
 });

@@ -44,7 +44,7 @@
 }
 
 
-.standard-popup-whole-section-content.add-teacher-popup {
+.standard-popup-whole-section-content.add-smurf-popup {
   width: 250px;
   height: 330px;
 }
@@ -358,7 +358,7 @@
 }
 
 @media screen and (max-width: 521px) {
-  .standard-popup-whole-section-content.add-teacher-popup {
+  .standard-popup-whole-section-content.add-smurf-popup {
     width: 100dvw;
     height: 100dvh;
     box-shadow: none;
