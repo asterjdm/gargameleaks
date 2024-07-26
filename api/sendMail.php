@@ -8,7 +8,7 @@ $clientIP = getClientIp();
 $msg = "Le message: $userMsg\n Son IP (on sais jamais) $clientIP";
 
 for ($i = 0; $i < count(EMAILS); $i++) {
-    mail(EMAILS[$i], "CESCOLEAKS: message", $msg);
+    mail(EMAILS[$i], "gargameleaks: message", $msg);
 }
 
 if (isset($_GET["return"])) {

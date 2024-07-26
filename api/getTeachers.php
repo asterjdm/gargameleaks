@@ -26,14 +26,14 @@ function compareTeachers($a, $b, $sort)
 
 
 if (isset($searchQuery)) {
-    $teachers = $db->select("SELECT * FROM cescoleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
+    $teachers = $db->select("SELECT * FROM gargameleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
 } else {
-    $teachers = $db->select("SELECT * FROM cescoleaks_teachers ORDER BY name");
+    $teachers = $db->select("SELECT * FROM gargameleaks_teachers ORDER BY name");
 }
 
 foreach ($teachers as &$teacher) {
-    $comments = $db->select("SELECT * FROM cescoleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
-    $votesData = $db->select("SELECT * FROM cescoleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
+    $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
+    $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
     $votesCount = count($votesData);
 
     $teachingQualityTotal = 0;
