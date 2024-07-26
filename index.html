@@ -71,13 +71,6 @@
   <!-- Smurfs cards -->
   <main id="smurfsCards"></main>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <button class="standard-button main-footer-button" onclick="window.location.href='about.html'">À-propos</button>
-    <button class="standard-button main-footer-button" onclick="window.location.href='rules.html'">Règles</button>
-    <p class="main-footer-text">An Anonymous production</p>
-  </footer>
-
   <!----------------------------- Popups ----------------------------->
   <div id="addPopup" class="standard-popup">
     <div class="standard-popup-whole-section">
@@ -86,7 +79,7 @@
       </button>
       <div class="standard-popup-whole-section-content add-smurf-popup">
         <form style="display: contents" method="post" action="api/newSmurf.php">
-          <input name="name" class="standard-input insert-name" type="text" placeholder="nom du schtroumpf."/>
+          <input name="name" class="standard-input insert-name" type="text" placeholder="nom du schtroumpf"/>
           <button type="submit" class="standard-button send-request" onclick="closePopup('addPopup')">
             Envoyer
           </button>
@@ -170,7 +163,7 @@
           le site, du règlement. Si vous voulez comprendre d'un point de vue plus fondamental les objectifs de
           GARGAMELEAKS, vous pouvez consulter notre page "À propos".</p>
         <div class="welcome-links">
-          <a target="_blank" rel="noopener noreferrer" href="about.html">À-propos de GARGAMELEAKS</a>
+          <a target="_blank" rel="noopener noreferrer" href="#work-in-progress">Article à notre sujet</a>
           <a target="_blank" rel="noopener noreferrer" href="rules.html">Règlement de GARGAMELEAKS</a>
         </div>
         <button class="standard-button welcome-button" onclick="closeWelcomePopup('welcomePopup')">j'ai lu et accepté le

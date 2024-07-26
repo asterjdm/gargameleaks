@@ -164,6 +164,7 @@
 
 .value::-moz-range-thumb {
   -webkit-appearance: none;
+  appearance: none;
   border: var(--border-width) var(--border-style) var(--border-color);
   border-radius: 0px;
   width: 25px;
@@ -175,6 +176,7 @@
 
 .value::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   border: var(--border-width) var(--border-style) var(--border-color);
   border-radius: 0px;
   width: 25px;

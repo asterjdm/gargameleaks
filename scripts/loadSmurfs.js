@@ -67,7 +67,6 @@ function addSmurfs(smurfs) {
             )}
           </div>
 
-
           <p class="standart-card-stars-text">Intelligence</p>
           <div class="standard-card-stars">${getStarsHtml(smurfs.sympathy)}</div>
 
