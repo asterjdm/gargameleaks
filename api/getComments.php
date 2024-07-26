@@ -7,13 +7,7 @@ include_once(dirname(__FILE__) . "/database.php");
 
 $db = new Database;
 
-$teacherId = $db->escapeStrings($_POST['teacherID']);
+$smurfsId = $db->escapeStrings($_POST['smurfsID']);
 
-<<<<<<< HEAD
-$comments = $db->select("SELECT * FROM gargameleaks_comments_comments WHERE teacher_ID = '$teacherId'");
-
-echo json_encode($comments);
-=======
-$comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '$teacherId'");
+$comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurfs_ID = '$smurfsId'");
 print_r(json_encode($comments));
->>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f

@@ -14,7 +14,7 @@ $teachingQualityRating = $db->escapeStrings($_POST["teachingQuality"]);
 $kindnessRating =  $db->escapeStrings($_POST["kindness"]);
 $humorRating = $db->escapeStrings($_POST["humor"]);
 
-$teacherId = $db->escapeStrings($_POST["teacherId"]);
+$smurfsId = $db->escapeStrings($_POST["smurfsId"]);
 
 $clientIp = getClientIp();
 $hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
@@ -28,31 +28,21 @@ if (
     exit();
 }
 
-<<<<<<< HEAD
-$sameUserVotes = $db->select("SELECT * FROM gargameleaks_comments_votes WHERE teacher_ID = '$teacherId' AND IP = '$hashedIp'");
-if (count($sameUserVotes) >= 1) {
-    $db->query("UPDATE gargameleaks_comments_votes 
-=======
-$sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE teacher_ID = '$teacherId' AND IP = '$hashedIp'");
+$sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'");
 if (count($sameUserVotes) >= 1) {
     $db->query("UPDATE gargameleaks_votes 
->>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f
                 SET teaching_quality = '$teachingQualityRating', 
                     kindness = '$kindnessRating', 
                     humor = '$humorRating' 
-                WHERE teacher_ID = '$teacherId' AND IP = '$hashedIp'
+                WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'
     ");
 
     echo json_encode(array("info" => "vote updated"));
     exit();
 }
 
-<<<<<<< HEAD
-$db->query("INSERT INTO gargameleaks_comments_votes (teacher_ID, IP, teaching_quality, kindness, humor) VALUES 
-=======
-$db->query("INSERT INTO gargameleaks_votes (teacher_ID, IP, teaching_quality, kindness, humor) VALUES 
->>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f
-            ('$teacherId', '$hashedIp', '$teachingQualityRating', '$kindnessRating', '$humorRating')");
+$db->query("INSERT INTO gargameleaks_votes (smurfs_ID, IP, teaching_quality, kindness, humor) VALUES 
+            ('$smurfsId', '$hashedIp', '$teachingQualityRating', '$kindnessRating', '$humorRating')");
 
 echo json_encode(array());
 exit(); // we never know

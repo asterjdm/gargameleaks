@@ -1,9 +1,9 @@
-async function sendComment(content, teacher_ID) {
+async function sendComment(content, smurfs_ID) {
   let response = await fetch("api/newComment.php", {
     method: "POST",
     body: objectToFormData({
       content: content,
-      teacherId: teacher_ID,
+      smurfsId: smurfs_ID,
     }),
   });
   let responseJson = await response.json();

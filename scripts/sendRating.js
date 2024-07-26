@@ -2,7 +2,7 @@ async function sendVotes(smurfId, teachingQuality, kindness, humor) {
   let response = await fetch("api/newRating.php", {
     method: "POST",
     body: objectToFormData({
-      teacherId: smurfId,
+      smurfsId: smurfId,
       teachingQuality: teachingQuality,
       kindness: kindness,
       humor: humor,

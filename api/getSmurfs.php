@@ -26,14 +26,14 @@ function compareSmurfs($a, $b, $sort)
 
 
 if (isset($searchQuery)) {
-    $teachers = $db->select("SELECT * FROM gargameleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
+    $smurfs = $db->select("SELECT * FROM gargameleaks_smurfs WHERE name LIKE '%$searchQuery%' ORDER BY name");
 } else {
-    $teachers = $db->select("SELECT * FROM gargameleaks_teachers ORDER BY name");
+    $smurfs = $db->select("SELECT * FROM gargameleaks_smurfs ORDER BY name");
 }
 
-foreach ($teachers as &$teacher) {
-    $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
-    $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
+foreach ($smurfs as &$smurfs) {
+    $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurfs_ID = '{$smurfs["ID"]}'");
+    $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '{$smurfs["ID"]}'");
     $votesCount = count($votesData);
 
     $teachingQualityTotal = 0;
@@ -48,11 +48,11 @@ foreach ($teachers as &$teacher) {
         $humorTotal += $vote["humor"];
     }
 
-    $teacher["comments_count"] = count($comments);
-    $teacher["votes_count"] = $votesCount;
-    $teacher["teaching_quality"] = ($votesCount > 0) ? $teachingQualityTotal / $votesCount : 0;
-    $teacher["kindness"] = ($votesCount > 0) ? $kindnessTotal / $votesCount : 0;
-    $teacher["humor"] = ($votesCount > 0) ? $humorTotal / $votesCount : 0;
+    $smurfs["comments_count"] = count($comments);
+    $smurfs["votes_count"] = $votesCount;
+    $smurfs["teaching_quality"] = ($votesCount > 0) ? $teachingQualityTotal / $votesCount : 0;
+    $smurfs["kindness"] = ($votesCount > 0) ? $kindnessTotal / $votesCount : 0;
+    $smurfs["humor"] = ($votesCount > 0) ? $humorTotal / $votesCount : 0;
 }
 
 usort($Smurfs, function ($a, $b) use ($sort) {
