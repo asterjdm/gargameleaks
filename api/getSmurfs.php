@@ -26,16 +26,6 @@ function compareSmurfs($a, $b, $sort)
 
 
 if (isset($searchQuery)) {
-<<<<<<< HEAD:api/getSmurfs.php
-    $Smurfs = $db->select("SELECT * FROM gargameleaks_comments_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
-} else {
-    $Smurfs = $db->select("SELECT * FROM gargameleaks_comments_teachers ORDER BY name");
-}
-
-foreach ($Smurfs as &$teacher) {
-    $comments = $db->select("SELECT * FROM gargameleaks_comments_comments WHERE teacher_ID = '{$teacher["ID"]}'");
-    $votesData = $db->select("SELECT * FROM gargameleaks_comments_votes WHERE teacher_ID = '{$teacher["ID"]}'");
-=======
     $teachers = $db->select("SELECT * FROM gargameleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
 } else {
     $teachers = $db->select("SELECT * FROM gargameleaks_teachers ORDER BY name");
@@ -44,7 +34,6 @@ foreach ($Smurfs as &$teacher) {
 foreach ($teachers as &$teacher) {
     $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
     $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
->>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f:api/getTeachers.php
     $votesCount = count($votesData);
 
     $teachingQualityTotal = 0;
