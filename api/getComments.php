@@ -10,5 +10,4 @@ $db = new Database;
 $teacherId = $db->escapeStrings($_POST['teacherID']);
 
 $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '$teacherId'");
-print_r($comments);
 echo json_encode($comments);
