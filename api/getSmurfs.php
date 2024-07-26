@@ -13,13 +13,13 @@ $sort = isset($_GET["sort"]) ? $db->escapeStrings($_GET["sort"]) : 'best_score';
 function compareSmurfs($a, $b, $sort)
 {
     if ($sort == "best_score") {
-        return ($b["intelligence"] + $b["utility"] + $b["beauty"]) - ($a["intelligence"] + $a["utility"] + $a["beauty"]);
+        return ($b["intelligence"] + $b["utility"] + $b["sympathy"]) - ($a["intelligence"] + $a["utility"] + $a["sympathy"]);
     } elseif ($sort == "most_votes") {
         return $b["votes_count"] - $a["votes_count"];
     } elseif ($sort == "least_votes") {
         return $a["votes_count"] - $b["votes_count"];
     } elseif ($sort == "worst_score") {
-        return ($a["intelligence"] + $a["utility"] + $a["beauty"]) - ($b["intelligence"] + $b["utility"] + $b["beauty"]);
+        return ($a["intelligence"] + $a["utility"] + $a["sympathy"]) - ($b["intelligence"] + $b["utility"] + $b["sympathy"]);
     }
 }
 
@@ -38,19 +38,19 @@ foreach ($smurfs as &$smurf) {
 
     $intelligenceTotal = 0;
     $utilityTotal = 0;
-    $beautyTotal = 0;
+    $sympathyTotal = 0;
 
     foreach ($votesData as $vote) {
         $intelligenceTotal += $vote["intelligence"];
         $utilityTotal += $vote["utility"];
-        $beautyTotal += $vote["beauty"];
+        $sympathyTotal += $vote["sympathy"];
     }
 
     $smurf["comments_count"] = count($comments);
     $smurf["votes_count"] = $votesCount;
     $smurf["intelligence"] = ($votesCount > 0) ? $intelligenceTotal / $votesCount : 0;
     $smurf["utility"] = ($votesCount > 0) ? $utilityTotal / $votesCount : 0;
-    $smurf["beauty"] = ($votesCount > 0) ? $beautyTotal / $votesCount : 0;
+    $smurf["sympathy"] = ($votesCount > 0) ? $sympathyTotal / $votesCount : 0;
 }
 
 if (!empty($smurfs)) {

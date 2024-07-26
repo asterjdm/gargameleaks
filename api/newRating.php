@@ -12,7 +12,7 @@ include_once(dirname(__FILE__) . "/secrets.php");
 $db = new Database;
 $intelligenceRating = $db->escapeStrings($_POST["intelligence"]);
 $utilityRating =  $db->escapeStrings($_POST["utility"]);
-$beautyRating = $db->escapeStrings($_POST["beauty"]);
+$sympathyRating = $db->escapeStrings($_POST["sympathy"]);
 
 $smurfsId = $db->escapeStrings($_POST["smurfsId"]);
 
@@ -22,7 +22,7 @@ $hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
 if (
     $intelligenceRating > 10 || $intelligenceRating <= 0 ||
     $utilityRating > 10 || $utilityRating <= 0 ||
-    $beautyRating > 10 || $beautyRating <= 0
+    $sympathyRating > 10 || $sympathyRating <= 0
 ) {
     echo "invalid values";
     exit();
@@ -33,7 +33,7 @@ if (count($sameUserVotes) >= 1) {
     $db->query("UPDATE gargameleaks_votes 
                 SET intelligence = '$intelligenceRating', 
                     utility = '$utilityRating', 
-                    beauty = '$beautyRating' 
+                    sympathy = '$sympathyRating' 
                 WHERE smurf_ID = '$smurfsId' AND IP = '$hashedIp'
     ");
 
@@ -41,8 +41,8 @@ if (count($sameUserVotes) >= 1) {
     exit();
 }
 
-$db->query("INSERT INTO gargameleaks_votes (smurf_ID, IP, intelligence, utility, beauty) VALUES 
-            ('$smurfsId', '$hashedIp', '$intelligenceRating', '$utilityRating', '$beautyRating')");
+$db->query("INSERT INTO gargameleaks_votes (smurf_ID, IP, intelligence, utility, sympathy) VALUES 
+            ('$smurfsId', '$hashedIp', '$intelligenceRating', '$utilityRating', '$sympathyRating')");
 
 echo json_encode(array());
 exit(); // we never know

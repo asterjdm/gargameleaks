@@ -23,7 +23,7 @@ function openRatingPopup(popupId, smurfId) {
   voteRatingButton.addEventListener("click", () => {
     sendVotes(
       smurfId,
-      parseFloat(document.getElementById("ratingBeauty").value),
+      parseFloat(document.getElementById("ratingSympathy").value),
       parseFloat(document.getElementById("ratingUtility").value),
       parseFloat(document.getElementById("ratingIntelligence").value)
     ).then(() => {

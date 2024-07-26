@@ -61,7 +61,7 @@ function addSmurfs(smurfs) {
           <div class="standard-card-stars">
             ${getStarsHtml(
               Math.round(
-                (smurfs.intelligence + smurfs.utility + smurfs.beauty) /
+                (smurfs.intelligence + smurfs.utility + smurfs.sympathy) /
                   3
               )
             )}
@@ -69,7 +69,7 @@ function addSmurfs(smurfs) {
 
 
           <p class="standart-card-stars-text">Humour</p>
-          <div class="standard-card-stars">${getStarsHtml(smurfs.beauty)}</div>
+          <div class="standard-card-stars">${getStarsHtml(smurfs.sympathy)}</div>
 
           <p class="standart-card-stars-text">Qualité des cours</p>
           <div class="standard-card-stars">
