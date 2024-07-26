@@ -19,9 +19,9 @@ if ($adminPassword != ADMIN_PASSWORD) {
 $commentId = $db->escapeStrings($_POST['comment_id']);
 $duration = $_POST['duration'];
 $endDate = $db->escapeStrings(time() + $duration);
-$comment = $db->select("SELECT * FROM cescoleaks_comments WHERE ID = '$commentId'");
+$comment = $db->select("SELECT * FROM gargameleaks_comments_comments WHERE ID = '$commentId'");
 
 $authorIp = $db->escapeStrings($comment[0]["IP"]);
-$db->query("DELETE FROM cescoleaks_comments WHERE ID = '$commentId'");
+$db->query("DELETE FROM gargameleaks_comments_comments WHERE ID = '$commentId'");
 
-$db->query("INSERT INTO cescoleaks_bann (IP, end_time) VALUES ('$authorIp', '$endDate')");
+$db->query("INSERT INTO gargameleaks_comments_bann (IP, end_time) VALUES ('$authorIp', '$endDate')");

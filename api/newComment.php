@@ -17,14 +17,14 @@ $teacherId = $db->escapeStrings($_POST['teacherId']);
 $clientIp = getClientIp();
 $hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
 
-$bannRecords = $db->select("SELECT * FROM cescoleaks_bann WHERE IP = '$hashedIp'");
+$bannRecords = $db->select("SELECT * FROM gargameleaks_comments_bann WHERE IP = '$hashedIp'");
 
 if (count($bannRecords) > 0) {
     echo json_encode(array("error" => "banned"));
     exit();
 }
 
-$db->query("INSERT INTO cescoleaks_comments (teacher_ID, IP, content) VALUES 
+$db->query("INSERT INTO gargameleaks_comments_comments (teacher_ID, IP, content) VALUES 
             ('$teacherId', '$hashedIp', '$content')");
 echo json_encode(array());
 

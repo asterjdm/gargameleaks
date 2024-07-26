@@ -8,6 +8,6 @@ include_once(dirname(__FILE__) . "/database.php");
 $db = new Database;
 
 
-$comments = $db->select("SELECT * FROM cescoleaks_comments");
+$comments = $db->select("SELECT * FROM gargameleaks_comments_comments");
 
 echo json_encode($comments);

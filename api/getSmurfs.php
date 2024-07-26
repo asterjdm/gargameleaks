@@ -26,14 +26,14 @@ function compareSmurfs($a, $b, $sort)
 
 
 if (isset($searchQuery)) {
-    $Smurfs = $db->select("SELECT * FROM cescoleaks_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
+    $Smurfs = $db->select("SELECT * FROM gargameleaks_comments_teachers WHERE name LIKE '%$searchQuery%' ORDER BY name");
 } else {
-    $Smurfs = $db->select("SELECT * FROM cescoleaks_teachers ORDER BY name");
+    $Smurfs = $db->select("SELECT * FROM gargameleaks_comments_teachers ORDER BY name");
 }
 
 foreach ($Smurfs as &$teacher) {
-    $comments = $db->select("SELECT * FROM cescoleaks_comments WHERE teacher_ID = '{$teacher["ID"]}'");
-    $votesData = $db->select("SELECT * FROM cescoleaks_votes WHERE teacher_ID = '{$teacher["ID"]}'");
+    $comments = $db->select("SELECT * FROM gargameleaks_comments_comments WHERE teacher_ID = '{$teacher["ID"]}'");
+    $votesData = $db->select("SELECT * FROM gargameleaks_comments_votes WHERE teacher_ID = '{$teacher["ID"]}'");
     $votesCount = count($votesData);
 
     $teachingQualityTotal = 0;
