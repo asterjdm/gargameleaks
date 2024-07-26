@@ -156,6 +156,7 @@
 
 .value {
   -webkit-appearance: none;
+  appearance: none;
   width: 600px;
   height: 15px;
   background: white;
@@ -201,7 +202,6 @@
   width: 617px;
   font-size: 25px;
 }
-
 
 /* Alert Popup */
 .standard-popup-whole-section-content.alert-popup {
