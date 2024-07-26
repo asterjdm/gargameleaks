@@ -28,9 +28,15 @@ if (
     exit();
 }
 
+<<<<<<< HEAD
 $sameUserVotes = $db->select("SELECT * FROM gargameleaks_comments_votes WHERE teacher_ID = '$teacherId' AND IP = '$hashedIp'");
 if (count($sameUserVotes) >= 1) {
     $db->query("UPDATE gargameleaks_comments_votes 
+=======
+$sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE teacher_ID = '$teacherId' AND IP = '$hashedIp'");
+if (count($sameUserVotes) >= 1) {
+    $db->query("UPDATE gargameleaks_votes 
+>>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f
                 SET teaching_quality = '$teachingQualityRating', 
                     kindness = '$kindnessRating', 
                     humor = '$humorRating' 
@@ -41,7 +47,11 @@ if (count($sameUserVotes) >= 1) {
     exit();
 }
 
+<<<<<<< HEAD
 $db->query("INSERT INTO gargameleaks_comments_votes (teacher_ID, IP, teaching_quality, kindness, humor) VALUES 
+=======
+$db->query("INSERT INTO gargameleaks_votes (teacher_ID, IP, teaching_quality, kindness, humor) VALUES 
+>>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f
             ('$teacherId', '$hashedIp', '$teachingQualityRating', '$kindnessRating', '$humorRating')");
 
 echo json_encode(array());

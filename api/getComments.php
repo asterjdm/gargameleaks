@@ -9,6 +9,11 @@ $db = new Database;
 
 $teacherId = $db->escapeStrings($_POST['teacherID']);
 
+<<<<<<< HEAD
 $comments = $db->select("SELECT * FROM gargameleaks_comments_comments WHERE teacher_ID = '$teacherId'");
 
 echo json_encode($comments);
+=======
+$comments = $db->select("SELECT * FROM gargameleaks_comments WHERE teacher_ID = '$teacherId'");
+print_r(json_encode($comments));
+>>>>>>> 1a56928bc55611875d70be6a628d0a91516e988f
