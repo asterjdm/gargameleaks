@@ -14,13 +14,13 @@ $sort = $db->escapeStrings($_GET["sort"]);
 function compareSmurfs($a, $b, $sort)
 {
     if ($sort == "best_score") {
-        return $b["teaching_quality"] + $b["kindness"] + $b["humor"] - $a["teaching_quality"] - $a["kindness"]  - $a["humor"];
+        return $b["intelligence"] + $b["utility"] + $b["beauty"] - $a["intelligence"] - $a["utility"]  - $a["beauty"];
     } elseif ($sort == "most_votes") {
         return $b["votes_count"] - $a["votes_count"];
     } elseif ($sort  == "least_votes") {
         return $a["votes_count"] - $b["votes_count"];
     } elseif ($sort == "worst_score") {
-        return $a["teaching_quality"] + $a["kindness"]  + $a["humor"] - $b["teaching_quality"] - $b["kindness"]  - $b["humor"];
+        return $a["intelligence"] + $a["utility"]  + $a["beauty"] - $b["intelligence"] - $b["utility"]  - $b["beauty"];
     }
 }
 
@@ -36,23 +36,23 @@ foreach ($smurfs as &$smurfs) {
     $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '{$smurfs["ID"]}'");
     $votesCount = count($votesData);
 
-    $teachingQualityTotal = 0;
-    $kindnessTotal = 0;
-    $humorTotal = 0;
+    $intelligenceTotal = 0;
+    $utilityTotal = 0;
+    $beautyTotal = 0;
 
     $votesCount = 0;
     foreach ($votesData as $vote) {
         $votesCount++;
-        $teachingQualityTotal += $vote["teaching_quality"];
-        $kindnessTotal += $vote["kindness"];
-        $humorTotal += $vote["humor"];
+        $intelligenceTotal += $vote["intelligence"];
+        $utilityTotal += $vote["utility"];
+        $beautyTotal += $vote["beauty"];
     }
 
     $smurfs["comments_count"] = count($comments);
     $smurfs["votes_count"] = $votesCount;
-    $smurfs["teaching_quality"] = ($votesCount > 0) ? $teachingQualityTotal / $votesCount : 0;
-    $smurfs["kindness"] = ($votesCount > 0) ? $kindnessTotal / $votesCount : 0;
-    $smurfs["humor"] = ($votesCount > 0) ? $humorTotal / $votesCount : 0;
+    $smurfs["intelligence"] = ($votesCount > 0) ? $intelligenceTotal / $votesCount : 0;
+    $smurfs["utility"] = ($votesCount > 0) ? $utilityTotal / $votesCount : 0;
+    $smurfs["beauty"] = ($votesCount > 0) ? $beautyTotal / $votesCount : 0;
 }
 
 usort($Smurfs, function ($a, $b) use ($sort) {

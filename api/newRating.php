@@ -10,9 +10,9 @@ include_once(dirname(__FILE__) . "/utils/getClientIp.php");
 include_once(dirname(__FILE__) . "/secrets.php");
 
 $db = new Database;
-$teachingQualityRating = $db->escapeStrings($_POST["teachingQuality"]);
-$kindnessRating =  $db->escapeStrings($_POST["kindness"]);
-$humorRating = $db->escapeStrings($_POST["humor"]);
+$intelligenceRating = $db->escapeStrings($_POST["intelligence"]);
+$utilityRating =  $db->escapeStrings($_POST["utility"]);
+$beautyRating = $db->escapeStrings($_POST["beauty"]);
 
 $smurfsId = $db->escapeStrings($_POST["smurfsId"]);
 
@@ -20,9 +20,9 @@ $clientIp = getClientIp();
 $hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
 
 if (
-    $teachingQualityRating > 10 || $teachingQualityRating <= 0 ||
-    $kindnessRating > 10 || $kindnessRating <= 0 ||
-    $humorRating > 10 || $humorRating <= 0
+    $intelligenceRating > 10 || $intelligenceRating <= 0 ||
+    $utilityRating > 10 || $utilityRating <= 0 ||
+    $beautyRating > 10 || $beautyRating <= 0
 ) {
     echo "invalid values";
     exit();
@@ -31,9 +31,9 @@ if (
 $sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'");
 if (count($sameUserVotes) >= 1) {
     $db->query("UPDATE gargameleaks_votes 
-                SET teaching_quality = '$teachingQualityRating', 
-                    kindness = '$kindnessRating', 
-                    humor = '$humorRating' 
+                SET intelligence = '$intelligenceRating', 
+                    utility = '$utilityRating', 
+                    beauty = '$beautyRating' 
                 WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'
     ");
 
@@ -41,8 +41,8 @@ if (count($sameUserVotes) >= 1) {
     exit();
 }
 
-$db->query("INSERT INTO gargameleaks_votes (smurfs_ID, IP, teaching_quality, kindness, humor) VALUES 
-            ('$smurfsId', '$hashedIp', '$teachingQualityRating', '$kindnessRating', '$humorRating')");
+$db->query("INSERT INTO gargameleaks_votes (smurfs_ID, IP, intelligence, utility, beauty) VALUES 
+            ('$smurfsId', '$hashedIp', '$intelligenceRating', '$utilityRating', '$beautyRating')");
 
 echo json_encode(array());
 exit(); // we never know
