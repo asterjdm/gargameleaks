@@ -32,8 +32,8 @@ if (isset($searchQuery)) {
 }
 
 foreach ($smurfs as &$smurfs) {
-    $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurfs_ID = '{$smurfs["ID"]}'");
-    $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '{$smurfs["ID"]}'");
+    $comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurf_ID = '{$smurfs["ID"]}'");
+    $votesData = $db->select("SELECT * FROM gargameleaks_votes WHERE smurf_ID = '{$smurfs["ID"]}'");
     $votesCount = count($votesData);
 
     $intelligenceTotal = 0;

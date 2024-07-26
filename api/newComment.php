@@ -24,7 +24,7 @@ if (count($bannRecords) > 0) {
     exit();
 }
 
-$db->query("INSERT INTO gargameleaks_comments (smurfs_ID, IP, content) VALUES 
+$db->query("INSERT INTO gargameleaks_comments (smurf_ID, IP, content) VALUES 
             ('$smurfsId', '$hashedIp', '$content')");
 echo json_encode(array());
 

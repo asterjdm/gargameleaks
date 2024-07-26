@@ -9,5 +9,5 @@ $db = new Database;
 
 $smurfsId = $db->escapeStrings($_POST['smurfsID']);
 
-$comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurfs_ID = '$smurfsId'");
+$comments = $db->select("SELECT * FROM gargameleaks_comments WHERE smurf_ID = '$smurfsId'");
 print_r(json_encode($comments));

@@ -28,20 +28,20 @@ if (
     exit();
 }
 
-$sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'");
+$sameUserVotes = $db->select("SELECT * FROM gargameleaks_votes WHERE smurf_ID = '$smurfsId' AND IP = '$hashedIp'");
 if (count($sameUserVotes) >= 1) {
     $db->query("UPDATE gargameleaks_votes 
                 SET intelligence = '$intelligenceRating', 
                     utility = '$utilityRating', 
                     beauty = '$beautyRating' 
-                WHERE smurfs_ID = '$smurfsId' AND IP = '$hashedIp'
+                WHERE smurf_ID = '$smurfsId' AND IP = '$hashedIp'
     ");
 
     echo json_encode(array("info" => "vote updated"));
     exit();
 }
 
-$db->query("INSERT INTO gargameleaks_votes (smurfs_ID, IP, intelligence, utility, beauty) VALUES 
+$db->query("INSERT INTO gargameleaks_votes (smurf_ID, IP, intelligence, utility, beauty) VALUES 
             ('$smurfsId', '$hashedIp', '$intelligenceRating', '$utilityRating', '$beautyRating')");
 
 echo json_encode(array());
