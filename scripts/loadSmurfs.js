@@ -68,15 +68,15 @@ function addSmurfs(smurfs) {
           </div>
 
 
-          <p class="standart-card-stars-text">Humour</p>
+          <p class="standart-card-stars-text">Intelligence</p>
           <div class="standard-card-stars">${getStarsHtml(smurfs.sympathy)}</div>
 
-          <p class="standart-card-stars-text">Qualité des cours</p>
+          <p class="standart-card-stars-text">Sympathie</p>
           <div class="standard-card-stars">
             ${getStarsHtml(smurfs.intelligence)}
           </div>
 
-          <p class="standart-card-stars-text">Sympathie</p>
+          <p class="standart-card-stars-text">Utilité</p>
           <div class="standard-card-stars">
             ${getStarsHtml(smurfs.utility)}
           </div>
