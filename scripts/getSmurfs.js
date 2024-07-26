@@ -3,4 +3,5 @@ async function getSmurfs(searchQuery, sort) {
     `api/getSmurfs.php?searchQuery=${searchQuery}&sort=${sort}`
   );
   return data.json();
+  console.log(data);
 }
