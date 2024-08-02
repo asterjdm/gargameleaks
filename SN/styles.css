@@ -20,8 +20,8 @@ header h1 {
 }
 
 .container {
-    width: 60%;
-    min-width: 700px;
+    min-width: 60%;
+    max-width: 700px;
     margin: 0 auto;
 }
 
