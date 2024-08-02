@@ -26,8 +26,8 @@ ratingValues.forEach((value, index) => {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "hidden";
-    openPopup("welcomePopup");
     openPopup("aboutPopup");
+    openPopup("welcomePopup");
 });
 getBann().then(function (result) {
   if (result.banned) {
