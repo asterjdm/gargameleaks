@@ -3,22 +3,22 @@
 
 <head>
 
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./images/favicon.ico"/>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./styles/styles.css"/>
-  <link rel="stylesheet" href="./styles/header.css"/>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="./styles/header.css" />
 
   <!-- Standard assets -->
-  <link rel="stylesheet" href="./styles/standard-assets/button.css"/>
-  <link rel="stylesheet" href="./styles/standard-assets/select.css"/>
-  <link rel="stylesheet" href="./styles/standard-assets/input.css"/>
-  <link rel="stylesheet" href="./styles/standard-assets/popup.css"/>
-  <link rel="stylesheet" href="./styles/standard-assets/card.css"/>
+  <link rel="stylesheet" href="./styles/standard-assets/button.css" />
+  <link rel="stylesheet" href="./styles/standard-assets/select.css" />
+  <link rel="stylesheet" href="./styles/standard-assets/input.css" />
+  <link rel="stylesheet" href="./styles/standard-assets/popup.css" />
+  <link rel="stylesheet" href="./styles/standard-assets/card.css" />
 
   <!-- Scripts -->
   <script src="./scripts/utils/objectToFormData.js"></script>
@@ -48,14 +48,14 @@
     </div>
     <!-- Search bar -->
     <div class="main-header-search">
-      <input id="searchBar" class="main-header-search-input" type="text" placeholder="chercher un schtroumpf"/>
-      <img class="main-header-search-img" src="./images/search.png" alt="search icon"/>
+      <input id="searchBar" class="main-header-search-input" type="text" placeholder="chercher un schtroumpf" />
+      <img class="main-header-search-img" src="./images/search.png" alt="search icon" />
     </div>
 
     <!-- Request new smurf button -->
     <button class="standard-button main-header-button" onclick="openPopup('addPopup')">
       <p class="main-header-button-text">nouveau schtroumpf</p>
-      <img class="main-header-button-img" src="./images/plus.png" alt="plus icon"/>
+      <img class="main-header-button-img" src="./images/plus.png" alt="plus icon" />
     </button>
   </header>
 
@@ -75,11 +75,11 @@
   <div id="addPopup" class="standard-popup">
     <div class="standard-popup-whole-section">
       <button class="standard-button standard-popup-close" onclick="closePopup('addPopup')">
-        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon"/>
+        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon" />
       </button>
       <div class="standard-popup-whole-section-content add-smurf-popup">
         <form style="display: contents" method="post" action="api/newSmurf.php">
-          <input name="name" class="standard-input insert-name" type="text" placeholder="nom du schtroumpf"/>
+          <input name="name" class="standard-input insert-name" type="text" placeholder="nom du schtroumpf" />
           <button type="submit" class="standard-button send-request" onclick="closePopup('addPopup')">
             Envoyer
           </button>
@@ -91,7 +91,7 @@
   <div id="commentPopup" class="standard-popup">
     <div class="standard-popup-whole-section comment-popup">
       <button class="standard-button standard-popup-close" onclick="closePopup('commentPopup')">
-        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon"/>
+        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon" />
       </button>
       <div class="standard-popup-whole-section-content comment-popup">
         <div id="commentsPlace" class="standard-popup-whole-section-content-messages">
@@ -111,7 +111,7 @@
     <div class="standard-popup-whole-section rating-popup">
       <button class="standard-button standard-popup-close" onclick="closePopup('ratingPopup')">
         <img class="standard-popup-close-img comment-popup other" draggable="false" src="./images/close.svg"
-          alt="close icon"/>
+          alt="close icon" />
       </button>
       <div class="standard-popup-whole-section-content rating-popup">
         <div class="score">
@@ -146,8 +146,8 @@
   <div id="alertPopup" class="standard-popup">
     <div class="standard-popup-whole-section">
       <div class="standard-popup-whole-section-content alert-popup">
-      <h1 class="alert-text"><!-- Insert alert text --> Votre vote a été mis a jour</h1>
-      <button class="standard-button alert-button" onclick="closePopup('alertPopup')">fermer</button>
+        <h1 class="alert-text"><!-- Insert alert text --> Votre vote a été mis a jour</h1>
+        <button class="standard-button alert-button" onclick="closePopup('alertPopup')">fermer</button>
       </div>
     </div>
   </div>
@@ -157,16 +157,37 @@
     <div class="standard-popup-whole-section welcome-popup">
       <div class="standard-popup-whole-section-content welcome-popup">
         <h1 class="welcome-title">Bienvenue sur GARGAMELEAKS !</h1>
-        <p class="welcome-text">GARGAMELEAKS est un site web permettant aux habitants du village des Schtroumpfs de donner leur avis sur
+        <p class="welcome-text">GARGAMELEAKS est un site web permettant aux habitants du village des Schtroumpfs de
+          donner leur avis sur
           leurs amis Schtroumpfs et de leur attribuer une note.<br><br> Nous vous invitons à prendre connaissance, avant
           d'utiliser
-          le site, du règlement. Si vous voulez comprendre d'un point de vue plus fondamental les réactions que suscitent notre site, vous pouvez consulter l'article de la RTN (Radio Très Neutre) à notre sujet.</p>
+          le site, du règlement.
+          <br>
+          Toute ressemblance avec des personnages ou des événements existants serait purement fortuite et ne pourrait
+          être que le fruit d’une pure coïncidence.
+        </p>
         <div class="welcome-links">
-          <a target="_blank" rel="noopener noreferrer" href="#work-in-progress">Article à notre sujet</a>
           <a target="_blank" rel="noopener noreferrer" href="rules.html">Règlement de GARGAMELEAKS</a>
         </div>
         <button class="standard-button welcome-button" onclick="closeWelcomePopup('welcomePopup')">j'ai lu et accepté le
           règlement</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="welcomePopup" class="standard-popup">
+    <div class="standard-popup-whole-section welcome-popup">
+      <div class="standard-popup-whole-section-content welcome-popup">
+        <h1 class="welcome-title">Plus d'info</h1>
+        <p class="welcome-text">
+          Nous espérons que les Schtroumfs ne vont pas porter plainte !
+          <img src="images/smurf_prison.jpeg" alt="" width="100">
+          Le journal SCHTROUMF NEWS a écrit un article sur GARGAMELEAKS, vous pouvez le lire ici :
+        </p>
+        <div class="welcome-links">
+          <a target="_blank" rel="noopener noreferrer" href="SN">L'article totalement neutre de SCHTROUMF NEWS</a>
+        </div>
+        <button class="standard-button welcome-button" onclick="closeWelcomePopup('welcomePopup')">Fermer</button>
       </div>
     </div>
   </div>
