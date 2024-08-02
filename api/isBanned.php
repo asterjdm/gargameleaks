@@ -10,7 +10,7 @@ include_once(dirname(__FILE__) . "/secrets.php");
 
 $db =  new Database;
 $clientIp = getClientIp();
-$hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
+$hashedIp = $db->escapeStrings(hash("sha256", $clientIp /*. HASH_SECRET*/));
 
 $bannRecords = $db->select("SELECT * FROM gargameleaks_bann WHERE IP = '$hashedIp'");
 

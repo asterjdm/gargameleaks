@@ -15,7 +15,7 @@ $content =  $db->escapeStrings(htmlspecialchars($_POST['content']));
 $smurfsId = $db->escapeStrings($_POST['smurfsId']);
 
 $clientIp = getClientIp();
-$hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
+$hashedIp = $db->escapeStrings(hash("sha256", $clientIp /*. HASH_SECRET*/));
 
 $bannRecords = $db->select("SELECT * FROM gargameleaks_bann WHERE IP = '$hashedIp'");
 

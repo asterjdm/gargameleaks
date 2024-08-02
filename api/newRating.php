@@ -1,7 +1,7 @@
 <?php
-// ini_set('display_errors', '1');
-// ini_set('display_startup_errors', '1');
-// error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 header('Content-type: application/json');
 
@@ -17,7 +17,7 @@ $sympathyRating = $db->escapeStrings($_POST["sympathy"]);
 $smurfsId = $db->escapeStrings($_POST["smurfsId"]);
 
 $clientIp = getClientIp();
-$hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
+$hashedIp = $db->escapeStrings(hash("sha256", $clientIp /*. HASH_SECRET*/));
 
 if (
     $intelligenceRating > 10 || $intelligenceRating <= 0 ||
