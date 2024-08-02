@@ -14,7 +14,7 @@ function recreateNode(el, withChildren) {
   }
 }
 
-function openRatingPopup(popupId, profId) {
+function openRatingPopup(popupId, smurfId) {
   openPopup(popupId);
 
   recreateNode(document.getElementById("voteRatingButton"), true);
@@ -22,17 +22,17 @@ function openRatingPopup(popupId, profId) {
   const voteRatingButton = document.getElementById("voteRatingButton");
   voteRatingButton.addEventListener("click", () => {
     sendVotes(
-      profId,
-      parseFloat(document.getElementById("ratingTeachingQuality").value),
-      parseFloat(document.getElementById("ratingKindness").value),
-      parseFloat(document.getElementById("ratingHumor").value)
+      smurfId,
+      parseFloat(document.getElementById("ratingSympathy").value),
+      parseFloat(document.getElementById("ratingUtility").value),
+      parseFloat(document.getElementById("ratingIntelligence").value)
     ).then(() => {
       closePopup(popupId);
-      getTeachers(
+      getSmurfs(
         document.getElementById("searchBar").value,
-        document.getElementById("sortTeachers").value
-      ).then(function (teachers) {
-        addTeachers(teachers);
+        document.getElementById("sortSmurfs").value
+      ).then(function (smurfs) {
+        addSmurfs(smurfs);
       });
     });
   });
@@ -43,7 +43,7 @@ function closeWelcomePopup(id) {
   closePopup(id);
 }
 
-function onCommentSend(profId) {
+function onCommentSend(smurfId) {
   if (
     document
       .getElementById("commentContentInput")
@@ -52,19 +52,19 @@ function onCommentSend(profId) {
   )
     sendComment(
       document.getElementById("commentContentInput").value,
-      profId
+      smurfId
     ).then(() => {
-      getComments(profId).then(function (comments) {
+      getComments(smurfId).then(function (comments) {
         loadComments(comments);
       });
       document.getElementById("commentContentInput").value = "";
     });
 }
 
-function openCommentsPopup(popupId, profId) {
+function openCommentsPopup(popupId, smurfId) {
   openPopup(popupId);
 
-  getComments(profId).then(function (comments) {
+  getComments(smurfId).then(function (comments) {
     loadComments(comments);
   });
 
@@ -75,11 +75,11 @@ function openCommentsPopup(popupId, profId) {
 
   sendCommentInput.addEventListener("keyup", function (e) {
     if (e.key == "Enter") {
-      onCommentSend(profId);
+      onCommentSend(smurfId);
     }
   });
 
-  sendCommentButton.addEventListener("click", () => onCommentSend(profId));
+  sendCommentButton.addEventListener("click", () => onCommentSend(smurfId));
 }
 
 function closePopup(id) {

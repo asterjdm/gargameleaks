@@ -1,11 +1,11 @@
-async function sendVotes(profId, teachingQuality, kindness, humor) {
+async function sendVotes(smurfId, intelligence, utility, sympathy) {
   let response = await fetch("api/newRating.php", {
     method: "POST",
     body: objectToFormData({
-      teacherId: profId,
-      teachingQuality: teachingQuality,
-      kindness: kindness,
-      humor: humor,
+      smurfsId: smurfId,
+      intelligence: intelligence,
+      utility: utility,
+      sympathy: sympathy,
     }),
   });
   let responseJson = await response.json();

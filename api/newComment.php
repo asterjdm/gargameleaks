@@ -12,7 +12,7 @@ include_once(dirname(__FILE__) . "/secrets.php");
 $db = new Database;
 
 $content =  $db->escapeStrings(htmlspecialchars($_POST['content']));
-$teacherId = $db->escapeStrings($_POST['teacherId']);
+$smurfsId = $db->escapeStrings($_POST['smurfsId']);
 
 $clientIp = getClientIp();
 $hashedIp = $db->escapeStrings(hash("sha256", $clientIp . HASH_SECRET));
@@ -24,8 +24,8 @@ if (count($bannRecords) > 0) {
     exit();
 }
 
-$db->query("INSERT INTO gargameleaks_comments (teacher_ID, IP, content) VALUES 
-            ('$teacherId', '$hashedIp', '$content')");
+$db->query("INSERT INTO gargameleaks_comments (smurf_ID, IP, content) VALUES 
+            ('$smurfsId', '$hashedIp', '$content')");
 echo json_encode(array());
 
 exit();

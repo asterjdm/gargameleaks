@@ -1,4 +1,4 @@
-const profCardsEmp = document.getElementById("profCards");
+const smurfsCards = document.getElementById("smurfsCards");
 
 function getStarsHtml(n) {
   let starsHtml = "";
@@ -17,7 +17,7 @@ function getStarsHtml(n) {
   return starsHtml;
 }
 
-function addTeachers(teachers) {
+function addSmurfs(smurfs) {
   let mdrr = [
     "Francoi holland",
     "Le bon vieu Staline",
@@ -32,21 +32,21 @@ function addTeachers(teachers) {
   ];
 
   let htmlResult = "";
-  teachers.forEach((teacher) => {
+  smurfs.forEach((smurfs) => {
     htmlResult += /*html*/ `
       <div class="standard-card">
         <div class="standard-card-top">
           <img
             class="standard-card-image"
-            src="${teacher.image_url}"
+            src="${smurfs.image_url}"
             onerror="this.onerror=null; this.src='images/default.png'"
             alt="${mdrr[Math.floor(Math.random() * mdrr.length)]}"
           />
           <div class="standard-card-top-right">
-            <h1 class="standard-card-name">${teacher.name}</h1>
+            <h1 class="standard-card-name">${smurfs.name}</h1>
             <button
               class="standard-button standard-card-top-right-button"
-              onclick="openRatingPopup('ratingPopup',${teacher.ID})"
+              onclick="openRatingPopup('ratingPopup',${smurfs.ID})"
             >
               Voter
             </button>
@@ -55,49 +55,48 @@ function addTeachers(teachers) {
 
         <div class="standard-card-stars-container">
           <p class="standart-card-stars-text">Moyenne <span style='text-transform: lowercase'>(${
-            teacher.votes_count
-          } ${teacher.votes_count >= 2 ? "votes" : "vote"})</span></p>
+            smurfs.votes_count
+          } ${smurfs.votes_count >= 2 ? "votes" : "vote"})</span></p>
 
           <div class="standard-card-stars">
             ${getStarsHtml(
               Math.round(
-                (teacher.teaching_quality + teacher.kindness + teacher.humor) /
+                (smurfs.intelligence + smurfs.utility + smurfs.sympathy) /
                   3
               )
             )}
           </div>
 
-
-          <p class="standart-card-stars-text">Humour</p>
-          <div class="standard-card-stars">${getStarsHtml(teacher.humor)}</div>
-
-          <p class="standart-card-stars-text">Qualité des cours</p>
-          <div class="standard-card-stars">
-            ${getStarsHtml(teacher.teaching_quality)}
-          </div>
+          <p class="standart-card-stars-text">Intelligence</p>
+          <div class="standard-card-stars">${getStarsHtml(smurfs.sympathy)}</div>
 
           <p class="standart-card-stars-text">Sympathie</p>
           <div class="standard-card-stars">
-            ${getStarsHtml(teacher.kindness)}
+            ${getStarsHtml(smurfs.intelligence)}
+          </div>
+
+          <p class="standart-card-stars-text">Utilité</p>
+          <div class="standard-card-stars">
+            ${getStarsHtml(smurfs.utility)}
           </div>
         </div>
         <!-- Open comments popup -->
         <div
           class="standard-button standard-card-button"
-          onclick="openCommentsPopup('commentPopup', ${teacher.ID})"
+          onclick="openCommentsPopup('commentPopup', ${smurfs.ID})"
         >
-          Lire les avis (${teacher.comments_count})
+          Lire les avis (${smurfs.comments_count})
         </div>
       </div>
     `;
   });
 
-  profCardsEmp.innerHTML = htmlResult;
+  smurfsCards.innerHTML = htmlResult;
 }
 
-getTeachers(
+getSmurfs(
   document.getElementById("searchBar").value,
-  document.getElementById("sortTeachers").value
-).then(function (teachers) {
-  addTeachers(teachers);
+  document.getElementById("sortSmurfs").value
+).then(function (smurfs) {
+  addSmurfs(smurfs);
 });

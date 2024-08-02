@@ -1,32 +1,33 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico"/>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./styles/styles.css" />
-  <link rel="stylesheet" href="./styles/header.css" />
+  <link rel="stylesheet" href="./styles/styles.css"/>
+  <link rel="stylesheet" href="./styles/header.css"/>
 
   <!-- Standard assets -->
-  <link rel="stylesheet" href="./styles/standard-assets/button.css" />
-  <link rel="stylesheet" href="./styles/standard-assets/select.css" />
-  <link rel="stylesheet" href="./styles/standard-assets/input.css" />
-  <link rel="stylesheet" href="./styles/standard-assets/popup.css" />
-  <link rel="stylesheet" href="./styles/standard-assets/card.css" />
+  <link rel="stylesheet" href="./styles/standard-assets/button.css"/>
+  <link rel="stylesheet" href="./styles/standard-assets/select.css"/>
+  <link rel="stylesheet" href="./styles/standard-assets/input.css"/>
+  <link rel="stylesheet" href="./styles/standard-assets/popup.css"/>
+  <link rel="stylesheet" href="./styles/standard-assets/card.css"/>
 
   <!-- Scripts -->
-  <script src="./scripts/loadTeachers.js" defer></script>
-  <script src="./scripts/loadComments.js" defer></script>
   <script src="./scripts/utils/objectToFormData.js"></script>
+  <script src="./scripts/loadSmurfs.js" defer></script>
+  <script src="./scripts/loadComments.js" defer></script>
   <script src="./scripts/sendComment.js"></script>
   <script src="./scripts/sendComment.js"></script>
   <script src="./scripts/getComments.js"></script>
-  <script src="./scripts/getTeachers.js"></script>
+  <script src="./scripts/getSmurfs.js"></script>
   <script src="./scripts/popup.js" defer></script>
   <script src="./scripts/page.js" defer></script>
   <script src="./scripts/sendRating.js"></script>
@@ -47,19 +48,19 @@
     </div>
     <!-- Search bar -->
     <div class="main-header-search">
-      <input id="searchBar" class="main-header-search-input" type="text" placeholder="chercher un prof" />
-      <img class="main-header-search-img" src="./images/search.png" alt="search icon" />
+      <input id="searchBar" class="main-header-search-input" type="text" placeholder="chercher un schtroumpf"/>
+      <img class="main-header-search-img" src="./images/search.png" alt="search icon"/>
     </div>
 
-    <!-- Request new teacher button -->
+    <!-- Request new smurf button -->
     <button class="standard-button main-header-button" onclick="openPopup('addPopup')">
-      <p class="main-header-button-text">nouveau prof</p>
-      <img class="main-header-button-img" src="./images/plus.png" alt="plus icon" />
+      <p class="main-header-button-text">nouveau schtroumpf</p>
+      <img class="main-header-button-img" src="./images/plus.png" alt="plus icon"/>
     </button>
   </header>
 
   <!-- Sort by score selector -->
-  <select id="sortTeachers" class="standard-select main-score-select">
+  <select id="sortSmurfs" class="standard-select main-score-select">
     <option value="alphabet">A..Z</option>
     <option value="best_score">Le meilleur score</option>
     <option value="worst_score">Le pire score</option>
@@ -67,41 +68,30 @@
     <option value="least_votes">Le moins de votes</option>
   </select>
 
-  <!-- Professors cards -->
-  <main id="profCards"></main>
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <button class="standard-button main-footer-button" onclick="window.location.href='about.html'">À-propos</button>
-    <button class="standard-button main-footer-button" onclick="window.location.href='rules.html'">Règles</button>
-    <p class="main-footer-text">An Anonymous production</p>
-  </footer>
+  <!-- Smurfs cards -->
+  <main id="smurfsCards"></main>
 
   <!----------------------------- Popups ----------------------------->
   <div id="addPopup" class="standard-popup">
     <div class="standard-popup-whole-section">
       <button class="standard-button standard-popup-close" onclick="closePopup('addPopup')">
-        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon" />
+        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon"/>
       </button>
-      <div class="standard-popup-whole-section-content add-teacher-popup">
-        <form style="display: contents" method="post" action="api/newTeacher.php">
-          <input name="name" class="standard-input insert-name" type="text" placeholder="Nom du prof." />
+      <div class="standard-popup-whole-section-content add-smurf-popup">
+        <form style="display: contents" method="post" action="api/newSmurf.php">
+          <input name="name" class="standard-input insert-name" type="text" placeholder="nom du schtroumpf"/>
           <button type="submit" class="standard-button send-request" onclick="closePopup('addPopup')">
             Envoyer
           </button>
         </form>
-        <!-- <div class="select-image">
-                      <input id="uploadPhoto" class="upload-photo" type="file">
-                      <img id="previewImage" class="preview-image" src="./images/upload.png">
-          </div> -->
       </div>
     </div>
   </div>
 
   <div id="commentPopup" class="standard-popup">
     <div class="standard-popup-whole-section comment-popup">
-      <button class="standard-button standard-popup-close comment-popup" onclick="closePopup('commentPopup')">
-        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon" />
+      <button class="standard-button standard-popup-close" onclick="closePopup('commentPopup')">
+        <img class="standard-popup-close-img" draggable="false" src="./images/close.svg" alt="close icon"/>
       </button>
       <div class="standard-popup-whole-section-content comment-popup">
         <div id="commentsPlace" class="standard-popup-whole-section-content-messages">
@@ -119,30 +109,30 @@
 
   <div id="ratingPopup" class="standard-popup">
     <div class="standard-popup-whole-section rating-popup">
-      <button class="standard-button standard-popup-close comment-popup other" onclick="closePopup('ratingPopup')">
+      <button class="standard-button standard-popup-close" onclick="closePopup('ratingPopup')">
         <img class="standard-popup-close-img comment-popup other" draggable="false" src="./images/close.svg"
-          alt="close icon" />
+          alt="close icon"/>
       </button>
       <div class="standard-popup-whole-section-content rating-popup">
         <div class="score">
-          <p class="score-title">Humour</p>
+          <p class="score-title">Intelligence</p>
           <div class="score-value">
-            <input id="ratingHumor" class="value" type="range" min="1" max="10" value="5" />
-            <p id="ratingText2">5</p>
-          </div>
-        </div>
-        <div class="score">
-          <p class="score-title">Qualité des cours</p>
-          <div class="score-value">
-            <input id="ratingTeachingQuality" class="value" type="range" min="1" max="10" value="5" />
-            <p id="ratingText3">5</p>
+            <input id="ratingIntelligence" class="value" type="range" min="1" max="10" value="5" />
+            <p id="ratingText1">5</p>
           </div>
         </div>
         <div class="score">
           <p class="score-title">Sympathie</p>
           <div class="score-value">
-            <input id="ratingKindness" class="value" type="range" min="1" max="10" value="5" />
-            <p id="ratingText4">5</p>
+            <input id="ratingSympathy" class="value" type="range" min="1" max="10" value="5" />
+            <p id="ratingText2">5</p>
+          </div>
+        </div>
+        <div class="score">
+          <p class="score-title">Utilité</p>
+          <div class="score-value">
+            <input id="ratingUtility" class="value" type="range" min="1" max="10" value="5" />
+            <p id="ratingText3">5</p>
           </div>
         </div>
         <button id="voteRatingButton" class="standard-button save-ratings">
@@ -167,13 +157,12 @@
     <div class="standard-popup-whole-section welcome-popup">
       <div class="standard-popup-whole-section-content welcome-popup">
         <h1 class="welcome-title">Bienvenue sur GARGAMELEAKS !</h1>
-        <p class="welcome-text">GARGAMELEAKS est un site web permettant aux élèves de CESCOLE de donner leur avis sur
-          leurs professeurs et de leur attribuer une note.<br><br> Nous vous invitons à prendre connaissance, avant
+        <p class="welcome-text">GARGAMELEAKS est un site web permettant aux habitants du village des Schtroumpfs de donner leur avis sur
+          leurs amis Schtroumpfs et de leur attribuer une note.<br><br> Nous vous invitons à prendre connaissance, avant
           d'utiliser
-          le site, du règlement. Si vous voulez comprendre d'un point de vue plus fondamental les objectifs de
-          GARGAMELEAKS, vous pouvez consulter notre page "À propos".</p>
+          le site, du règlement. Si vous voulez comprendre d'un point de vue plus fondamental les réactions que suscitent notre site, vous pouvez consulter l'article de la RTN (Radio Très Neutre) à notre sujet.</p>
         <div class="welcome-links">
-          <a target="_blank" rel="noopener noreferrer" href="about.html">À-propos de GARGAMELEAKS</a>
+          <a target="_blank" rel="noopener noreferrer" href="#work-in-progress">Article à notre sujet</a>
           <a target="_blank" rel="noopener noreferrer" href="rules.html">Règlement de GARGAMELEAKS</a>
         </div>
         <button class="standard-button welcome-button" onclick="closeWelcomePopup('welcomePopup')">j'ai lu et accepté le

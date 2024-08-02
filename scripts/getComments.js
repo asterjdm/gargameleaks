@@ -1,8 +1,8 @@
-async function getComments(profId) {
+async function getComments(smurfId) {
   let response = await fetch("api/getComments.php", {
     method: "POST",
     body: objectToFormData({
-      teacherID: profId,
+      smurfsID: smurfId,
     }),
   });
   let responseJson = await response.json();

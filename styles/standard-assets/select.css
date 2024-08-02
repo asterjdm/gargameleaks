@@ -1,24 +1,31 @@
 .standard-select {
-    -webkit-appearance: none;
-    border: var(--border-width) var(--border-style) var(--border-color);
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    box-shadow: var(--border-width) var(--border-width) var(--border-color);
-    font-size: var(--main-font-size);
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--main-color);
-    background: var(--main-background);
-    user-select: none;
-    cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  box-shadow: var(--border-width) var(--border-width) var(--border-color);
+  font-size: var(--main-font-size);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main-color);
+  background: var(--main-background);
+  user-select: none;
+  cursor: pointer;
 }
 
 /* Main score select */
 .main-score-select {
   margin: 10px 17px -7px 17px;
-  width: calc(100% - 37.5px);
+  width: 794px;
 }
-  
+
+@media screen and (min-width: 1066px) {
+  .main-score-select {
+    width: 1066px;
+  }
+}
+
 @media screen and (max-width: 521px) {
   .main-score-select {
     margin-bottom: -25px;
