@@ -1,0 +1,99 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.container {
+    min-width: 60%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main {
+    padding: 20px 0;
+}
+
+article {
+    font-size: large;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    color: #007bff;
+}
+
+article .meta {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+
+
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    width: 40vw;
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.quote {
+    display: flex;
+    align-items: center;
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quote img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.quote blockquote {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.quote blockquote p {
+    margin: 0 0 10px 0;
+}
+
+.quote blockquote footer {
+    font-size: 0.9em;
+    color: #666;
+}
