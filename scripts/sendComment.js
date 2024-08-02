@@ -6,11 +6,10 @@ async function sendComment(content, smurf_ID) {
       smurfsId: smurf_ID,
     }),
   });
-  let responseJson = await response.json();
-  //   if (responseJson.info == "vote updated") {
-  //     alert("Votre vote a été mis a jour");
-  //   }
-  if (responseJson.error == "banned") {
-    window.location.reload();
-  }
+  // let responseJson = await response.json();
+
+
+  // if (responseJson.error == "banned") {
+  //   window.location.reload();
+  // }
 }
