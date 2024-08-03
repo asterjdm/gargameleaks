@@ -236,11 +236,7 @@
   font-size: 18px;
 }
 
-.welcome-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+.welcome-link {
   font-size: var(--main-font-sizealertPopup)
 }
 
@@ -269,7 +265,7 @@
     font-size: 4.5vw;
   }
 
-  .welcome-links {
+  .welcome-link {
     font-size: 3.8vw;
   }
 
