@@ -20,9 +20,9 @@
   width: 794px;
 }
 
-@media screen and (min-width: 1066px) {
+@media screen and (min-width: 1106px) {
   .main-score-select {
-    width: 1066px;
+    width: 1106px;
   }
 }
 
@@ -33,7 +33,7 @@
   }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
   .main-score-select {
     margin-bottom: -25px;
     width: 352px;

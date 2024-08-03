@@ -79,7 +79,7 @@
   width: calc(100% - 20px);
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
   .standard-card {
     transform: scale(1.4) translateY(70px);
   }

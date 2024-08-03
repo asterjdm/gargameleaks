@@ -337,7 +337,7 @@
   }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
   .standard-popup-whole-section-content.add-smurf-popup {
     width: 100dvw;
     height: 100dvh;
