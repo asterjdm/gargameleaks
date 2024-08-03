@@ -35,13 +35,15 @@
     color: var(--main-color);
 }
 
-/* *::selection {
+*::selection {
     background-color: var(--border-color);
     color: var(--main-background);
-} */
-
+}
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--main-background);
 }
 

@@ -236,10 +236,6 @@
   font-size: 18px;
 }
 
-.welcome-link {
-  font-size: var(--main-font-sizealertPopup)
-}
-
 .welcome-button {
   font-size: 25px;
 }

@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-/* Main score select */
+/* Main score select */width
 .main-score-select {
   margin: 10px 17px -7px 17px;
   width: 794px;
@@ -23,6 +23,13 @@
 @media screen and (min-width: 1066px) {
   .main-score-select {
     width: 1066px;
+  }
+}
+
+@media screen and (max-width: 833px) {
+  .main-score-select {
+    margin-bottom: -25px;
+    width: 833px;
   }
 }
 
