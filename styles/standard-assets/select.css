@@ -16,7 +16,7 @@
 
 /* Main score select */
 .main-score-select {
-  margin-top: 10px;
+  margin-top: 11px;
   width: 794px;
 }
 
@@ -28,8 +28,8 @@
 
 @media screen and (max-width: 833px) {
   .main-score-select {
-    margin-bottom: -25px;
-    width: 833px;
+    margin-bottom: -5px;
+    width: 521;
   }
 }
 
