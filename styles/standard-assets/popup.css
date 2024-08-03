@@ -227,21 +227,13 @@
 }
 
 .welcome-title {
-  margin-top: -20px;
-  font-size: 55px;
+  margin-top: -5px;
+  font-size: 24px;
 }
 
 .welcome-text {
   text-align: justify;
   font-size: 18px;
-}
-
-.welcome-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  font-size: var(--main-font-sizealertPopup)
 }
 
 .welcome-button {
@@ -269,7 +261,7 @@
     font-size: 4.5vw;
   }
 
-  .welcome-links {
+  .welcome-link {
     font-size: 3.8vw;
   }
 
@@ -345,7 +337,7 @@
   }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
   .standard-popup-whole-section-content.add-smurf-popup {
     width: 100dvw;
     height: 100dvh;

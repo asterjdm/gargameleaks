@@ -65,7 +65,7 @@
 }
 
 .standart-card-stars-text {
-  margin-bottom: -10px;
+  margin-bottom: -14.5px;
   margin-top: 10px;
   transform: translateX(-1px);
   font-size: 17px;
@@ -79,7 +79,7 @@
   width: calc(100% - 20px);
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
   .standard-card {
     transform: scale(1.4) translateY(70px);
   }

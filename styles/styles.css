@@ -35,13 +35,15 @@
     color: var(--main-color);
 }
 
-/* *::selection {
+*::selection {
     background-color: var(--border-color);
     color: var(--main-background);
-} */
-
+}
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--main-background);
 }
 
@@ -53,10 +55,10 @@ main {
     width: 794px;
 }
 
-@media screen and (min-width: 1066px) {
+@media screen and (min-width: 1106px) {
     main {
         grid-template-columns: repeat(4, 1fr);
-        width: 1066px;
+        width: 1106px;
     }
 }
 
@@ -67,7 +69,7 @@ main {
     }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 560px) {
     body {
         display: flex;
         flex-direction: column;

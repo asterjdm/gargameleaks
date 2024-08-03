@@ -16,17 +16,24 @@
 
 /* Main score select */
 .main-score-select {
-  margin: 10px 17px -7px 17px;
+  margin-top: 11px;
   width: 794px;
 }
 
-@media screen and (min-width: 1066px) {
+@media screen and (min-width: 1106px) {
   .main-score-select {
-    width: 1066px;
+    width: 1106px;
   }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 833px) {
+  .main-score-select {
+    margin-bottom: -5px;
+    width: 521;
+  }
+}
+
+@media screen and (max-width: 560px) {
   .main-score-select {
     margin-bottom: -25px;
     width: 352px;
